@@ -8,7 +8,14 @@ dashboardPage(
   
   dashboardSidebar(
    # includeCSS("custom.css"),
-    selectInput("player","Type in or Select Player", playerChoice),
+    inputPanel(
+      selectizeInput(
+        "player","Select or Type Player's Name",playerChoice,  options = list(maxOptions =
+                                                                             10000)
+      ),
+      actionButton("getPlayer","Go")
+    ),
+  
     
     
     
