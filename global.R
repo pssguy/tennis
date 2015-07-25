@@ -21,15 +21,18 @@ library(shinythemes)
 library(DT)
 library(readr)
 library(ggmap)
+library(dygraphs)
+library(xts)
 
-library(cricketr)
+
 
 ## prob load file and update daily??
 
  df <- read_csv("./data/majorsClean.csv")
+ df.ranking <- readRDS("mRank8415.rds")
 
 
-# create select vectors
+# create select vectors - will need to collect separate ones for ranking
  players <- read_csv("./data/allPlayers.csv")
  
  playerChoice <- sort(players$player)

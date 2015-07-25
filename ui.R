@@ -27,7 +27,8 @@ dashboardPage(
       
       menuItem(
         "Players", tabName = "players",icon = icon("table"),
-        menuSubItem("At A Glance", tabName = "pl_glance", selected = T),
+        menuSubItem("At A Glance", tabName = "pl_glance"),
+        menuSubItem("Rankings", tabName = "pl_rankings", selected = T),
         menuSubItem("By Tournament", tabName = "pl_tourney")
         
         
@@ -91,7 +92,10 @@ dashboardPage(
     
             ), 
             
-    
+tabItem("pl_rankings",
+        dygraphOutput("rankings")
+        
+), 
             
             
             tabItem("info",includeMarkdown("info.md"))
