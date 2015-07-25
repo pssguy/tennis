@@ -1,12 +1,12 @@
 
 
-rankingData <- eventReactive(input$getPlayer,{
-  input$getPlayer
+rankingData <- eventReactive(input$getRanker,{
+  input$getRanker
   
  # player <- input$player
   
   fed <- df.ranking %>% 
-    filter(Player==input$player) %>% 
+    filter(Player==input$ranker) %>% 
     select(date,Ranking) 
   
   rownames(fed) <- fed[[1]]
@@ -28,7 +28,7 @@ output$rankings <- renderDygraph({
   
   
   
-  title <- paste0(input$player," - Singles Ranking") 
+  title <- paste0(isolate(input$ranker)," - Singles Ranking") 
   
   dygraph(rankingData()$rank.xts, main=title,ylab="Rank") %>% 
     dyAxis("y", valueRange = c(rankingData()$max,rankingData()$min)) %>% 

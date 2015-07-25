@@ -7,15 +7,9 @@ dashboardPage(
   dashboardHeader(title = "Tennis Majors Mens Singles", titleWidth = 300),
   
   dashboardSidebar(
-   # includeCSS("custom.css"),
-    inputPanel(
-      selectizeInput(
-        "player","Select or Type Player's Name",playerChoice,  options = list(maxOptions =
-                                                                             10000)
-      ),
-      actionButton("getPlayer","Go")
-    ),
-  
+    includeCSS("custom.css"),
+    uiOutput("a"),
+    
     
     
     
