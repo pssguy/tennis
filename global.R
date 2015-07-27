@@ -30,9 +30,15 @@ library(xts)
 
  df <- read_csv("./data/majorsClean.csv")
  df.ranking <- readRDS("mRank8415.rds")
+ 
+ rankingChoice <- sort(unique(df.ranking$Player))
 
 
 # create select vectors - will need to collect separate ones for ranking
- players <- read_csv("./data/allPlayers.csv")
+ #players <- read_csv("./data/allPlayers.csv") #5390
+ # this df has link so can get bio  and maybe pic
+ 
+ players <- read_csv("./data/allMajorPlayers.csv") #5935 (perhaps took longer time period on this)
+ 
  
  playerChoice <- sort(players$player)

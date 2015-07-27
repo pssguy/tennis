@@ -21,8 +21,8 @@ dashboardPage(
       
       menuItem(
         "Players", tabName = "players",icon = icon("table"),
-        menuSubItem("At A Glance", tabName = "pl_glance"),
-        menuSubItem("Rankings", tabName = "pl_rankings", selected = T),
+        menuSubItem("At A Glance", tabName = "pl_glance", selected = T),
+        menuSubItem("Rankings", tabName = "pl_rankings"),
         menuSubItem("By Tournament", tabName = "pl_tourney")
         
         
@@ -60,6 +60,37 @@ dashboardPage(
     tabItem(
       "pl_glance",
       
+      fluidRow(
+        column(
+          width = 3,
+          box(
+            width = 12,title = "Image",solidHeader = TRUE,status = 'success',
+            collapsible = TRUE, collapsed = FALSE,
+            
+            htmlOutput("playerPic")
+          )
+        ),
+        column(
+          width = 4,
+          box(
+            width = 12,title = "Birth Details",solidHeader = TRUE,status = 'success',
+            collapsible = TRUE, collapsed = FALSE,
+            h5(textOutput("birthDate")),
+            hr(),
+            leafletOutput("birthPlace", height = 200)
+          )
+        ),
+        column(
+          width = 5,
+          box(
+            width = 12,  title = "Bio",solidHeader = TRUE,status = 'success',
+            collapsible = TRUE, collapsed = FALSE,
+            textOutput("playerSummary")
+          )
+        )
+        
+        
+      ),
 
       fluidRow(
         column(width = 3,
